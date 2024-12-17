@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-gothic: 'Crimson Text', serif;
+  --font-fraktur: 'UnifrakturMaguntia', cursive;
+}
+
+@layer base {
+  body {
+    @apply bg-gothic-900 text-gothic-100 bg-victorian-pattern;
+    font-family: var(--font-gothic);
+  }
+}
+
+@layer components {
+  .font-gothic {
+    font-family: var(--font-gothic);
+  }
+  
+  .font-fraktur {
+    font-family: var(--font-fraktur);
+  }
+  
+  .btn-gothic {
+    @apply px-6 py-3 bg-crimson-600 hover:bg-crimson-700 text-white border border-crimson-500 
+           shadow-lg transition duration-300 uppercase tracking-wider text-sm font-semibold;
+  }
+  
+  .input-gothic {
+    @apply w-full p-3 bg-gothic-800 border-2 border-gothic-800 focus:border-crimson-500 
+           rounded-none text-white placeholder-gothic-200/50 focus:ring-0 transition duration-300;
+  }
+  
+  .card-gothic {
+    @apply bg-gothic-800 border border-gothic-200/10 shadow-xl;
+  }
+}
