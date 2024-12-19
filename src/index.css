@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-gothic: 'Crimson Text', serif;
+  --font-fraktur: 'UnifrakturMaguntia', cursive;
+}
+
+@layer base {
+  body {
+    @apply bg-gothic-900 text-gothic-100 bg-victorian-pattern;
+    font-family: var(--font-gothic);
+  }
+}
+
+@layer components {
+  .font-gothic {
+    font-family: var(--font-gothic);
+  }
+  
+  .font-fraktur {
+    font-family: var(--font-fraktur);
+  }
+  
+  .btn-gothic {
+    @apply px-6 py-3 bg-crimson-600 hover:bg-crimson-700 text-white 
+           border border-crimson-500 shadow-lg transition duration-300 
+           uppercase tracking-wider text-sm font-semibold relative
+           after:content-[''] after:absolute after:inset-0
+           after:border after:border-white/10 after:scale-90 after:opacity-0
+           hover:after:scale-100 hover:after:opacity-100 after:transition-all;
+  }
+  
+  .input-gothic {
+    @apply w-full p-3 bg-gothic-800 border-2 border-gothic-200/30 
+           focus:border-crimson-500 rounded-none text-gothic-100 
+           placeholder-gothic-200/50 focus:ring-0 transition duration-300
+           shadow-inner;
+  }
+  
+  .card-gothic {
+    @apply bg-gothic-800 border border-gothic-200/10 shadow-xl relative
+           before:content-[''] before:absolute before:-inset-[1px]
+           before:border before:border-gothic-200/5 before:scale-[1.02]
+           before:-z-10;
+  }
+
+  .gothic-divider {
+    @apply relative py-8 flex items-center;
+  }
+
+  .gothic-divider::before,
+  .gothic-divider::after {
+    content: '';
+    @apply flex-1 border-t border-gothic-200/10;
+  }
+
+  .gothic-divider::before {
+    @apply mr-4;
+  }
+
+  .gothic-divider::after {
+    @apply ml-4;
+  }
+
+  .gothic-ornament {
+    @apply w-6 h-6 inline-flex items-center justify-center text-crimson-500;
+  }
+}
+
+.gothic-border-pattern {
+  background-image: 
+    linear-gradient(45deg, transparent 48%, rgba(220, 38, 38, 0.1) 49%, rgba(220, 38, 38, 0.1) 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(220, 38, 38, 0.1) 49%, rgba(220, 38, 38, 0.1) 51%, transparent 52%);
+  background-size: 20px 20px;
+  background-position: center;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
